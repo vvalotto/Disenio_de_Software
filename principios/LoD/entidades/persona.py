@@ -3,6 +3,7 @@ Clase Persona
 """
 from datetime import date, datetime
 
+
 class Persona:
 
     @property
@@ -60,3 +61,5 @@ class Persona:
         self._fecha_de_nacimiento = None
         self._genero = None
 
+    def __str__(self):
+        return self.nombre_y_apellido

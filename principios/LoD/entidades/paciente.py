@@ -27,3 +27,6 @@ class Paciente(Persona):
         super().__init__()
         self._obras_social_nombre = None
         self._obras_social_id = None
+
+    def __str__(self):
+        return str(self.nombre_y_apellido)

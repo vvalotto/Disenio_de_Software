@@ -2,4 +2,4 @@
 Módulo de componentes de registro de eventos
 """
 
-print("Módulo de logging")
+print("Módulo de trazador")
