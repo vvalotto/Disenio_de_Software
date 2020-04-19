@@ -6,43 +6,25 @@ from entidades.paciente import *
 
 class GestorTurno:
 
+    @property
+    def lista_de_turnos(self):
+        return self._lista_de_turnos.lista
+
     def __init__(self):
-        self._turno_del_dia = None
+        self._dia_de_turnos = datetime.today()
+        self._lista_de_turnos = ListaDeTurnos()
 
-    def crear_lista_de_turnos(self):
-        self._dia_de_turnos = datetime.date.today()
-        self._lista_de_turnos = Lista_de_Turnos()
-        return
+    def dar_turno(self, paciente, dia, hora):
+        turno = Turno()
+        turno.dia = dia
+        turno.hora = hora
+        turno.paciente = paciente
+        self._lista_de_turnos.agregar_turno(turno)
 
-    def dar_turno(self):
-        paciente = self._ingresar_paciente()
-        horario = self._asignar_horario()
-        self._agregar_turno(paciente, horario)
-        return
-
-    def generar_notificaciones_para_turnos(self):
-        return
-
-    def notificar_turno(self):
-
-        for turno in self.lista:
-            if turno._horario < self.plazo_para_aviso:
+    def notificar_turno(self, plazo_notificacion):
+        for turno in self._lista_de_turnos.lista:
+            print(str(turno.hora))
+            '''  
+            if turno.evento -  < plazo_notificacion:
                 self._enviar_notificacion(turno._paciente.telefono)
-
-    def _ingresar_paciente(self):
-        paciente = Paciente()
-
-        paciente.nombres = ""
-        paciente.apellido = ""
-        paciente.fecha_de_nacimiento = ""
-        paciente.obra_social_nombre = ""
-        paciente.obra_social_id = ""
-
-        return paciente
-
-    def _asignar_horario(self):
-        horario = None
-        return horario
-
-    def _agregar_turno(self, paciente, horario):
-        return
+            '''

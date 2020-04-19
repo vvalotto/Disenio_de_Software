@@ -87,7 +87,7 @@ class ListaDeTurnos:
 
     def hay_horario_ocupado(self, horario):
         for turno in self._lista:
-            if turno.evento_horario == horario and turno.estado == "ocupado":
+            if turno.hora == horario and turno.estado == "ocupado":
                 return self._lista.index(turno)
         return 0
 
@@ -100,20 +100,18 @@ class ListaDeTurnos:
         :return:
         """
         # Se toma el ultimo elemento de la lista
+
         nuevo_turno = self._lista[len(self._lista) - 1]
         posicion_a_comparar = self._lista.index(nuevo_turno)
-
         # Se recorre la lista de atras para adelante
-        for turno_ocupado in self._lista[len(self._lista) - 1:]:
-
-            # posicion del elemento a comparar
-            posicion_comparada = self._lista.index(turno_ocupado)
-
+        for iterador in range(len(self._lista), 0, -1):
+            print(str(self._lista[iterador - 1].paciente))
+            posicion = iterador - 1
+            turno_ocupado = self._lista[posicion]
             # Si el turno agregado es anterior al turno ya ocupado en el lista
             if nuevo_turno.hora < turno_ocupado.hora:
                 # el turno pasa a una la posicion a comparar
                 self._lista[posicion_a_comparar] = turno_ocupado
-                posicion_a_comparar = posicion_comparada
-            else:
-                self._lista[posicion_comparada] = nuevo_turno
+                posicion_a_comparar = posicion
+                self._lista[posicion] = nuevo_turno
         return

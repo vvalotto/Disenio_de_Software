@@ -33,7 +33,7 @@ class TestPersona(unittest.TestCase):
         self.assertEqual(self._una_persona.edad, 10)
 
     def test_persona(self):
-        self.assertEqual(self._una_persona, "Alejo Antonio Valotto")
+        self.assertEqual(str(self._una_persona), "Alejo Antonio Valotto")
 
 
 if __name__ == '__main__':

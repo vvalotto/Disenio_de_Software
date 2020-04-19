@@ -1,6 +1,6 @@
 from unittest import TestCase
 from principios.LoD.entidades.turno import ListaDeTurnos
-from .ejemplo_turno import fabricar_turno
+from .ejemplo_turno import fabricar_turno, fabricar_turno_2, fabricar_turno_3
 
 
 class TestListaDeTurnos(TestCase):
@@ -13,6 +13,7 @@ class TestListaDeTurnos(TestCase):
         self.assertEqual(len(self._lista_de_turnos.lista), 0)
 
     def test_agregar_turno(self):
+        self._turno = fabricar_turno()
         self._lista_de_turnos.agregar_turno(self._turno)
         self.assertEqual(len(self._lista_de_turnos.lista), 1)
 
@@ -20,8 +21,22 @@ class TestListaDeTurnos(TestCase):
         self.assertEqual(self._lista_de_turnos.hay_horario_ocupado(self._turno.hora), 0)
 
     def test_eliminar_turno(self):
+        self._turno = fabricar_turno()
+        self._lista_de_turnos.agregar_turno(self._turno)
         self._lista_de_turnos.eliminar_turno(self._turno)
-        self.assertEqual(len(self._lista_de_turnos.lista), 0)
+        self.assertEqual(len(self._lista_de_turnos.lista), 1)
 
-    def test_ordenar_por_horario(self):
-        self.assertEqual(0, 0)
+    def test_agregar_nuevo_turno(self):
+        self._turno = fabricar_turno()
+        self._lista_de_turnos.agregar_turno(self._turno)
+        self._turno = fabricar_turno_2()
+        self._lista_de_turnos.agregar_turno(self._turno)
+        self._turno = fabricar_turno_3()
+        self._lista_de_turnos.agregar_turno(self._turno)
+        for turno in self._lista_de_turnos.lista:
+            print(str(turno.paciente) + " - " + str(turno.hora))
+        self.assertEqual(len(self._lista_de_turnos.lista), 3)
+
+    def test_lista_ordenada(self):
+        print(len(self._lista_de_turnos.lista))
+        self.assertEqual(0,0)
