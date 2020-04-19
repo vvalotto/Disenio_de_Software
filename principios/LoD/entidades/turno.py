@@ -30,7 +30,7 @@ class Turno:
     @paciente.setter
     def paciente(self, valor):
         self._paciente = valor
-        if (self._paciente) != "" or (self._paciente != None):
+        if self._paciente != "" or self._paciente is not None:
             self._estado = "ocupado"
         else:
             self._estado = "vacio"
@@ -49,7 +49,7 @@ class Turno:
 
     @estado.setter
     def estado(self, valor):
-        self._estado= valor
+        self._estado = valor
 
     @property
     def evento(self):
@@ -65,7 +65,7 @@ class Turno:
         self._estado = "vacio"
 
 
-class Lista_de_Turnos:
+class ListaDeTurnos:
 
     @property
     def lista(self):
@@ -77,7 +77,7 @@ class Lista_de_Turnos:
     def agregar_turno(self, turno_nuevo):
         self.lista.append(turno_nuevo)
         if len(self._lista) > 1:
-            'Ordener lista por horario'
+            self._ordenar_por_horario()
         return
 
     def eliminar_turno(self, turno):
@@ -87,11 +87,11 @@ class Lista_de_Turnos:
 
     def hay_horario_ocupado(self, horario):
         for turno in self._lista:
-            if turno.evento_horario == horario and turno.estado == "ocupado" :
+            if turno.evento_horario == horario and turno.estado == "ocupado":
                 return self._lista.index(turno)
         return 0
 
-    def ordenar_por_horario(self):
+    def _ordenar_por_horario(self):
         """
         El ordenamiento es sencillo. Como siempre el nuevo turno
         se agrega al final de la lista, este elemento se compara con
@@ -99,17 +99,21 @@ class Lista_de_Turnos:
         menor al comparado.
         :return:
         """
-        turno_a_ordenar = self._lista[len(self._lista) - 1]
-        for turno in self._lista[len(self._lista) - 1:]:
-            posicion = self._lista.index(turno)
-            if turno_a_ordenar.hora < turno.hora:
-                self._lista[len(self._lista) - 1] = turno
+        # Se toma el ultimo elemento de la lista
+        nuevo_turno = self._lista[len(self._lista) - 1]
+        posicion_a_comparar = self._lista.index(nuevo_turno)
 
+        # Se recorre la lista de atras para adelante
+        for turno_ocupado in self._lista[len(self._lista) - 1:]:
 
+            # posicion del elemento a comparar
+            posicion_comparada = self._lista.index(turno_ocupado)
+
+            # Si el turno agregado es anterior al turno ya ocupado en el lista
+            if nuevo_turno.hora < turno_ocupado.hora:
+                # el turno pasa a una la posicion a comparar
+                self._lista[posicion_a_comparar] = turno_ocupado
+                posicion_a_comparar = posicion_comparada
+            else:
+                self._lista[posicion_comparada] = nuevo_turno
         return
-
-
-
-
-
-

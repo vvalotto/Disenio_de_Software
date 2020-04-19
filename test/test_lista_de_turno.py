@@ -1,13 +1,13 @@
 from unittest import TestCase
-from principios.LoD.entidades.turno import Lista_de_Turnos
+from principios.LoD.entidades.turno import ListaDeTurnos
 from .ejemplo_turno import fabricar_turno
 
 
-class TestLista_de_Turnos(TestCase):
+class TestListaDeTurnos(TestCase):
 
     def setUp(self) -> None:
         self._turno = fabricar_turno()
-        self._lista_de_turnos = Lista_de_Turnos()
+        self._lista_de_turnos = ListaDeTurnos()
 
     def test_lista_vacia(self):
         self.assertEqual(len(self._lista_de_turnos.lista), 0)
