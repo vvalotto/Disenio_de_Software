@@ -13,6 +13,7 @@ def fabricar_paciente() -> Paciente:
     paciente.fecha_de_nacimiento = datetime.date(2009, 4, 23)
     paciente.obra_social_id = 1
     paciente.obra_social_nombre = "OSUNER"
+    paciente.telefono = 154444444
     return paciente
 
 
@@ -23,6 +24,7 @@ def fabricar_paciente_2() -> Paciente:
     paciente.fecha_de_nacimiento = datetime.date(1999, 3, 15)
     paciente.obra_social_id = 1
     paciente.obra_social_nombre = "OSUNER"
+    paciente.telefono = 153666666
     return paciente
 
 
@@ -33,4 +35,5 @@ def fabricar_paciente_3() -> Paciente:
     paciente.fecha_de_nacimiento = datetime.date(1962, 6, 8)
     paciente.obra_social_id = 1
     paciente.obra_social_nombre = "OSUNER"
+    paciente.telefono = 154523986
     return paciente

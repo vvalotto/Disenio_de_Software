@@ -1,7 +1,6 @@
 
-
 from entidades.turno import *
-from entidades.paciente import *
+from datetime import timedelta, datetime
 
 
 class GestorTurno:
@@ -23,8 +22,12 @@ class GestorTurno:
 
     def notificar_turno(self, plazo_notificacion):
         for turno in self._lista_de_turnos.lista:
-            print(str(turno.hora))
-            '''  
-            if turno.evento -  < plazo_notificacion:
-                self._enviar_notificacion(turno._paciente.telefono)
-            '''
+            if turno.evento - timedelta(days=plazo_notificacion) > datetime.today():
+                mensaje = "Turno con el doctor: " + str(turno.evento)
+                self._enviar_notificacion(turno.paciente, mensaje)
+
+    @staticmethod
+    def _enviar_notificacion(paciente, mensaje):
+        print("Paciente: " + paciente.nombre_y_apellido)
+        print("Al telefono: " + str(paciente.telefono))
+        print("Mensaje: " + mensaje)

@@ -14,9 +14,13 @@ class TestGestorTurno(TestCase):
 
     def test_dar_turno(self):
         self._gestor_de_turnos = GestorTurno()
-        self._gestor_de_turnos.dar_turno(fabricar_paciente(), date(2020, 4, 18), time(17, 0, 0, 0))
-        self._gestor_de_turnos.notificar_turno(30)
-        self.assertEqual(len(self._gestor_de_turnos.lista_de_turnos), 1)
+        self._gestor_de_turnos.dar_turno(fabricar_paciente(), date(2020, 4, 21), time(8, 0, 0, 0))
+        self._gestor_de_turnos.dar_turno(fabricar_paciente_2(), date(2020, 4, 21), time(12, 0, 0))
+        self._gestor_de_turnos.dar_turno(fabricar_paciente_3(), date(2020, 4, 21), time(10, 30, 0))
+        for turno in self._gestor_de_turnos.lista_de_turnos:
+            print(str(turno.paciente) + " > " + str(turno.evento))
+        self._gestor_de_turnos.notificar_turno(1)
+        self.assertEqual(len(self._gestor_de_turnos.lista_de_turnos), 3)
 
     def test_notificar_turno(self):
 

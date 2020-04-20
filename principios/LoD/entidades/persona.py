@@ -1,7 +1,7 @@
 """
 Clase Persona
 """
-from datetime import date, datetime
+from datetime import date
 
 
 class Persona:
@@ -54,12 +54,21 @@ class Persona:
     def edad(self):
         return int((date.today() - self._fecha_de_nacimiento).days / 365)
 
+    @property
+    def telefono(self):
+        return self._telefono
+
+    @telefono.setter
+    def telefono(self, valor):
+        self._telefono = valor
+
     def __init__(self):
         self._nombres = None
         self._apellido = None
         self._documento = None
         self._fecha_de_nacimiento = None
         self._genero = None
+        self._telefono = None
 
     def __str__(self):
         return self.nombre_y_apellido

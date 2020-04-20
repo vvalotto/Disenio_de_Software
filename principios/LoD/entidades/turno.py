@@ -105,7 +105,7 @@ class ListaDeTurnos:
         posicion_a_comparar = self._lista.index(nuevo_turno)
         # Se recorre la lista de atras para adelante
         for iterador in range(len(self._lista), 0, -1):
-            print(str(self._lista[iterador - 1].paciente))
+
             posicion = iterador - 1
             turno_ocupado = self._lista[posicion]
             # Si el turno agregado es anterior al turno ya ocupado en el lista
