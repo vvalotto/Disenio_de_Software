@@ -1,6 +1,6 @@
 from unittest import TestCase
 from principios.LoD.entidades.turno import ListaDeTurnos
-from .ejemplo_turno import fabricar_turno, fabricar_turno_2, fabricar_turno_3
+from test.ejemplo_turno import fabricar_turno, fabricar_turno_2, fabricar_turno_3
 
 
 class TestListaDeTurnos(TestCase):

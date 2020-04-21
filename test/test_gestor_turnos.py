@@ -1,7 +1,8 @@
 from unittest import TestCase
 from principios.LoD.aplicacion.gestor_turnos import *
-from .ejemplo_paciente import *
+from test.ejemplo_paciente import *
 from datetime import date, time
+
 
 class TestGestorTurno(TestCase):
 

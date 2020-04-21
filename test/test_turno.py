@@ -1,6 +1,6 @@
 from unittest import TestCase
 from principios.LoD.entidades.turno import *
-from .ejemplo_paciente import fabricar_paciente
+from test.ejemplo_paciente import fabricar_paciente
 from datetime import datetime, date, time
 
 
