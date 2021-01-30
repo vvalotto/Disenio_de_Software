@@ -1,5 +1,5 @@
 
-class TipoX(object):
+class TipoX:
 
     def __init__(self, id):
         self._id = id
@@ -9,7 +9,8 @@ class TipoX(object):
         print('Tipo X hace algo')
         return
 
-class TipoY(object):
+
+class TipoY:
 
     def __init__(self):
         self._lista_tipoX = None
@@ -21,7 +22,8 @@ class TipoY(object):
         for i in self._lista_tipoX:
             print(i._id)
 
-class TipoZ(object):
+
+class TipoZ:
 
     def __init__(self, lista):
         self._lista_tipoX = lista

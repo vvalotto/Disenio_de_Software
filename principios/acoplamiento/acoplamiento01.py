@@ -1,5 +1,5 @@
 
-class Comparador(object):
+class Comparador:
 
     def __init__(self, referencia):
         self._referencia = referencia
@@ -11,13 +11,14 @@ class Comparador(object):
             resultado = "Subir" if valor < self._referencia else "Bajar"
         return resultado
 
-class Actuador(object):
+
+class Actuador:
 
     def actuar(self, accion):
         print(accion)
 
 
-class Control(object):
+class Control:
 
     def __init__(self):
         self.mi_comparador = Comparador(10)

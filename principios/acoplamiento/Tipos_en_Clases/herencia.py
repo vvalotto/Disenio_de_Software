@@ -1,5 +1,5 @@
 
-class TipoY(object):
+class TipoY:
 
     def __init__(self):
         self.accion = 'creando'
@@ -10,6 +10,7 @@ class TipoY(object):
         self.accion = 'haciendo'
         print('Tipo {0} > Accion: {1}'.format(self.__class__.__name__, self.accion))
         return
+
 
 class TipoX(TipoY):
 
@@ -23,6 +24,7 @@ class TipoX(TipoY):
         self.accion = 'haciendo algo'
         print('Tipo {0} > Accion: {1}'.format(self.__class__.__name__, self.accion))
         return
+
 
 if __name__ == '__main__':
     y = TipoY()

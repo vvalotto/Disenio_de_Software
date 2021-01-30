@@ -1,15 +1,14 @@
 import math
 
 
-class Salida(object):
+class Salida:
 
     direccion = ""
     Indicador = ""
     posicion = None
 
 
-
-class Comparador(object):
+class Comparador:
 
     def __init__(self, referencia):
         self._referencia = referencia
@@ -22,7 +21,7 @@ class Comparador(object):
         salida.direccion = resultado
         return salida
 
-class Actuador(object):
+class Actuador:
 
     def __init__(self, tope1, tope2):
         self._tope1 = tope1
@@ -39,7 +38,7 @@ class Actuador(object):
         print(salida.Indicador)
 
 
-class Control(object):
+class Control:
 
     def __init__(self):
         self.mi_comparador = Comparador(10)
